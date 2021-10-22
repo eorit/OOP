@@ -89,11 +89,11 @@ void RGBA::print() {
 стеке нет значений, то должно выводиться предупреждение;
 -public - метод с именем print(), который будет выводить все значения стека.
 */
-
+#define STACK_LENGTH 10
 class Stack {
 private:
     
-    int stack[10] = { 0 };
+    int stack[STACK_LENGTH] = { 0 };
     int quantity = -1;
 public:
     void reset();
@@ -107,6 +107,7 @@ public:
 };
 
 void Stack::reset() {
+    stack[STACK_LENGTH] = { 0 };
     quantity = -1;
 }
 
@@ -130,6 +131,7 @@ int Stack::pop() {
     }
     else if (quantity == -1) {
         std::cout << "Stack is empty" << std::endl;
+        return -1;
     }
 }
 
