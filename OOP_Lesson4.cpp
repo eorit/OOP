@@ -219,8 +219,8 @@ void printFilteredVector(std::vector <int > & v) {
 
 }
 
-void resizeVector(std::vector<int>& v) {
-	v.resize(v.size() * 2);
+void resizeVector(std::vector<int>& v, int size) {
+	v.resize(size * 2);
 }
 
 
@@ -258,6 +258,7 @@ int Card::getValue(Value value) {
 	return value;
 }
 */
+
 #define BLACK_JACK 21
 
 class Hand {
@@ -296,7 +297,7 @@ int main()
 //--------Task1----------------------
 //=============================================
 
-
+	
 
 	ArrayInt arr(ARRAY_SIZE);
 	for (int i = 0; i < ARRAY_SIZE; i++) {
@@ -309,7 +310,7 @@ int main()
 	std::cout << arr.pop_front() << std::endl;
 	arr.print();
 	
-
+	
 //=============================================
 //--------Task2----------------------
 //=============================================
@@ -325,9 +326,9 @@ int main()
 	
 	
 	for (int i = 0; i < ivect.size(); i++) {
-		if (numbers.size() < ivect[i]) {
-			resizeVector(numbers);
-			resizeVector(count);
+		if (numbers.size() <= ivect[i]) {
+			resizeVector(numbers, ivect[i]);
+			resizeVector(count, ivect[i]);
 		}
 		numbers[ivect[i]] = ivect[i];
 		count[ivect[i]] = count[ivect[i]]+1;
